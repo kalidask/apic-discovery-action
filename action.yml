@@ -1,0 +1,28 @@
+name: 'Create or Update Discovered APIs'
+description: 'Creates or updates the targeted api files'
+inputs:
+  api-host:
+    description: 'Domain name of the ApiConnect instance where discovered APIs will be sent'
+    required: true
+  api-key:
+    description: 'APIC API key'
+    required: false
+  provider-org:  
+    description: 'Name of ID of provider org to us'
+    required: true
+  api-files:  
+    description: 'One or more file names of the APIs to sync with apiconnect discovery repo'
+    required: true
+  api-folders:  
+    description: 'One or more folder names containing APIs to sync with apiconnect discovery repo'
+    required: true
+  resync_check:
+     description: 'Indicates if a check for datasource existance and resync is required'
+     required: false
+
+outputs:
+  action-result:
+    description: 'Result of operation to add apis to apiconnect discovery repo'  
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
