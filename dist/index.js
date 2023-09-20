@@ -66,14 +66,14 @@ let createOrUpdateDiscoveredApi = async function (workspacePath, apihost, apikey
 let zipDirectory = async function (dataSourceLocation, workspacePath, apisArray, isFolder, isMultiple){
     if(isFolder){
         for(let folder of apisArray){
-            const fileList = fs.readdirSync(workspacePath + "/" + folder);
+            const fileList = fs.readdirSync(workspacePath + "/" + folder.trim());
             for(let element of fileList){
-                await createFormattedAPI(workspacePath + "/" + folder + "/" + element, dataSourceLocation, true);
+                await createFormattedAPI(workspacePath + "/" + folder.trim() + "/" + element, dataSourceLocation, true);
             }
         }
     } else if(isMultiple){
         for(let element of apisArray){
-            await createFormattedAPI(workspacePath + "/" + element, dataSourceLocation, true);
+            await createFormattedAPI(workspacePath + "/" + element.trim(), dataSourceLocation, true);
         }
     }
     await zip.writeZip(outputFile);
