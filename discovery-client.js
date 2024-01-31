@@ -121,7 +121,7 @@ let createOrUpdateApiInternal = async function(curlUrl, token, bodyContent, meth
 
 let datasourceStateUpdate = async function(apihost, bodyContent, token, porg, dataSourceLocation) {
     try {
-        await axios.patch(`https://discovery-api.${apihost}/discovery/orgs/${porg}/data-sources/${encodeURIComponent(dataSourceLocation)}`, bodyContent, {
+        await axios.patch(`https://platform-api.${apihost}/discovery/orgs/${porg}/data-sources/${encodeURIComponent(dataSourceLocation)}`, bodyContent, {
             headers: {
                 Authorization: 'Bearer ' + token,
                 Accept: 'application/json',
@@ -137,7 +137,7 @@ let checkAndRegisterDataSource = async function(apihost, token, porg, dataSource
     // Use this function to perform the datasource registration. If the dataSource doesn't exist create it
     let resp;
     try {
-        resp = await axios.get(`https://discovery-api.${apihost}/discovery/orgs/${porg}/data-sources/${encodeURIComponent(dataSourceLocation)}`, {
+        resp = await axios.get(`https://platform-api.${apihost}/discovery/orgs/${porg}/data-sources/${encodeURIComponent(dataSourceLocation)}`, {
             headers: {
                 Authorization: 'Bearer ' + token,
                 Accept: 'application/json',
@@ -147,7 +147,7 @@ let checkAndRegisterDataSource = async function(apihost, token, porg, dataSource
         });
         if (resp.status === 404) {
             const bodyContent = JSON.stringify({ title: dataSourceLocation, collector_type: COLLECTOR_TYPE });
-            resp = await axios.post(`https://discovery-api.${apihost}/discovery/orgs/${porg}/data-sources`, bodyContent, {
+            resp = await axios.post(`https://platform-api.${apihost}/discovery/orgs/${porg}/data-sources`, bodyContent, {
                 headers: {
                     Authorization: 'Bearer ' + token,
                     Accept: 'application/json',
