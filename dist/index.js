@@ -12,6 +12,7 @@ const yaml = __nccwpck_require__(1917);
 const FormData = __nccwpck_require__(4334);
 const axios = __nccwpck_require__(8757);
 const AdmZip = __nccwpck_require__(6761);
+const core = __nccwpck_require__(2186);
 
 const COLLECTOR_TYPE = 'github';
 const RECORD_API_VERSION = '1.0';
