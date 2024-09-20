@@ -204,6 +204,7 @@ let getAuthToken = async function(apihost, platformApiPrefix, apikey) {
             'Content-Type': 'application/json'
         }
     })
+	    core.info(`token value in getauth ${token}`);
     .then(function(res) {
 	    core.info(`token value from function ${res.data.access_token}`);
         return res.data.access_token;
