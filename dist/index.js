@@ -17776,6 +17776,7 @@ async function execution(apihost, platformApiPrefix, porg, isFolder, apisLocatio
     try {
         core.info(`apihost ${apihost}`);
         core.info(`porg ${porg}`);
+	core.info(`platformAPI ${platformApiPrefix}`);
         isFolder && core.info(`apifolders ${apisLocation}`) || core.info(`apifiles ${apisLocation}`);
         core.info(`datasourceCheck ${datasourceCheck}`);
         var resp = await createOrUpdateDiscoveredApi(workspacePath, apihost, platformApiPrefix, apikey, porg, apisLocation, githubServer + '/' + repoLocation, datasourceCheck, isFolder, nodeTlsRejectUnauthorized);
