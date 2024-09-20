@@ -30,6 +30,7 @@ let createOrUpdateDiscoveredApi = async function(workspacePath, apihost, platfor
     }
     const apisArray = apisLocation.split(',');
     const isMultiple = apisArray.length > 1;
+    core.info(`I am before let`);
     let resp; let stateUpdateContent;
     let curlUrl = `https://${platformApiPrefix}.${apihost}/discovery/orgs/${porg}/discovered-apis`;
     if (!apikey) {
@@ -204,6 +205,7 @@ let getAuthToken = async function(apihost, platformApiPrefix, apikey) {
     .then(function(res) {
         return res.data.access_token;
     });
+    core.info(`token value in getAuthtoken ${token}`);
     return token;
 };
 
