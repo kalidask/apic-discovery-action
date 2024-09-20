@@ -36,6 +36,7 @@ let createOrUpdateDiscoveredApi = async function(workspacePath, apihost, platfor
     if (!apikey) {
         return { status: 304, message: [ 'Warning: create Or Update Discovered Api not run as apikey is missing' ] };
     }
+	core.info(`I am after let`);
     var token = await getAuthToken(apihost, platformApiPrefix, apikey);
     core.info(`token value ${token}`);
     if (dataSourceCheck) {
