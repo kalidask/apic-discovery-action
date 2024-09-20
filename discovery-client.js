@@ -145,6 +145,7 @@ let datasourceStateUpdate = async function(apihost, platformApiPrefix, bodyConte
             }
         }).then(response => {
             if (response.data.status === 404) {
+                console.log(response +"I am here");
                 return;
             }
         });
