@@ -197,6 +197,7 @@ let checkAndRegisterDataSource = async function(apihost, platformApiPrefix, toke
 let getAuthToken = async function(apihost, platformApiPrefix, apikey) {
 
     var bodyContent = JSON.stringify({ grant_type: 'api_key', api_key: apikey, realm: 'provider/default-idp-2' });
+	core.info(`bodycontent in getauth ${bodyContent} - ${apihost} - ${platformApiPrefix} - ${apikey}`);
     const token = await axios.post(`https://${platformApiPrefix}.${apihost}/discovery/token`, bodyContent, {
         headers: {
             Accept: 'application/json',
@@ -204,6 +205,7 @@ let getAuthToken = async function(apihost, platformApiPrefix, apikey) {
         }
     })
     .then(function(res) {
+	    core.info(`token value from function ${res.data.access_token}`);
         return res.data.access_token;
     });
     core.info(`token value in getAuthtoken ${token}`);
