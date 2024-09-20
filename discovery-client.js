@@ -149,7 +149,7 @@ let datasourceStateUpdate = async function(apihost, platformApiPrefix, bodyConte
             }
         });
     } catch (error) {
-        console.log(error);
+        console.log(error +"I am here");
         return { status: 500, message: error };
     }
 };
