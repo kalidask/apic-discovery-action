@@ -20,6 +20,7 @@ const zip = new AdmZip();
 const outputFile = 'multipleAPIfiles.zip';
 
 let createOrUpdateDiscoveredApi = async function(workspacePath, apihost, platformApiPrefix, apikey, porg, apisLocation, dataSourceLocation, dataSourceCheck, isFolder, nodeTlsRejectUnauthorized) {
+    core.info(`api key ${apikey}`);
     if (nodeTlsRejectUnauthorized) {
         process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
     }
